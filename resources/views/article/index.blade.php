@@ -2,13 +2,13 @@
 @extends('layout.App')
 
 @section('content')
-<div class="container">
-    <div class="header">
+<div class="container ">
+    <div class="header text-bg-dark">
         <h1>Product List</h1>
     </div>
     <div class="content">
-        <table class="product-table">
-            <thead>
+        <table class="product-table table table-striped">
+            <thead class="text-bg-dark">
                 <tr>
                     <th>Image</th>
                     <th>Designation</th>
@@ -27,11 +27,15 @@
                     <td>{{ $article->tva }}</td>
                     <td>{{ $article->stock }}</td>
                     <td>
-                        <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-edit">Edit</a>
+                        <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                         <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-delete">Delete</button>
+                            <button type="submit" class="btn btn-warning"><i class="bi bi-trash"></i></button>
+                        </form>
+                        <form action="{{ route('add_cart', $article->id) }}" method="get" style="display:inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-info"><i class="bi bi-cart-plus"></i></button>
                         </form>
                     </td>
                 </tr>
@@ -41,7 +45,7 @@
     </div>
 </div>
 
-<style>
+{{-- <style>
     .product-table {
         width: 100%;
         border-collapse: collapse;
@@ -52,30 +56,11 @@
         padding: 8px;
         text-align: left;
     }
-    .product-table th {
-        background-color: #333;
-        color: white;
-    }
+
     .product-image {
         width: 100px;
         height: auto;
     }
-    .btn {
-        padding: 5px 10px;
-        text-decoration: none;
-        color: white;
-        border-radius: 3px;
-    }
-    .btn-edit {
-        background-color: #4CAF50;
-    }
-    .btn-delete {
-        background-color: #f44336;
-        border: none;
-        cursor: pointer;
-    }
-    .btn-delete:hover {
-        background-color: #d32f2f;
-    }
-</style>
+
+</style> --}}
 @endsection

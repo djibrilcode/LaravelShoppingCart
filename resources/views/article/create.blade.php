@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <div class="header">
+    <div class="header text-bg-dark">
         <h1>Create New Product</h1>
     </div>
     <div class="content">
