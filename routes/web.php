@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CartController;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +21,10 @@ Route::get('/', function () {
     return view('Layout.App');
 });
 Route::get('/home', function () {
-    return view('pages.home');
+    return view('welcome');
 });
+
+Route::get('/counter', Counter::class);
 Route::get('/add_cart/{article}',[CartController::class, 'add_cart'])->name('add_cart');
 Route::get('/show_cart/', [CartController::class, 'show_cart'])->name('show_cart');
 Route::get('/vider_cart/', [CartController::class, 'vider_cart'])->name('vider_cart');

@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-    </head>
-    <body>
-        <h1>Hello from home Page</h1>
-    </body>
-</html>
+@extends('Layout.App')
+@section('content')
+    <div class="container text-center">
+        <h1 class="mt-5">Livewire 3 tutorial</h1>
+        @livewire('counter')
+    </div>
+@endsection
+
+
